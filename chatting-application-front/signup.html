@@ -1,0 +1,149 @@
+<head>
+    <link rel="stylesheet" href="css/style1.css">
+</head>
+
+
+<div id="signupform" class="cont_principal">
+
+    <div class="cont_centrar">
+        <div class="cont_login">
+        <!-- <form action=""> -->
+        <div class="cont_tabs_login">
+            <ul class='ul_tabs'>
+            <li ><a href="index.html" onclick="sign_in()">SIGN IN</a>
+            <span class="linea_bajo_nom"></span>
+            </li>
+            <li class="active"><a href="signup.html" onclick="sign_up()">SIGN UP</a><span class="linea_bajo_nom"></span>
+            </li>
+            </ul>
+            </div>
+        <div class="cont_text_inputs">
+            <input type="text" class="input_form_sign d_block active_inp " placeholder="NAME" name="name_us" id="name1"/>
+        
+        <input type="text" class="input_form_sign d_block active_inp " placeholder="EMAIL" name="emauil_us" id="email1" />
+    
+        <input type="password" class="input_form_sign d_block active_inp" placeholder="PASSWORD" name="pass_us" id="password1" />  
+        <input type="password" class="input_form_sign d_block active_inp" placeholder="CONFIRM PASSWORD" name="conf_pass_us" />
+        
+        <div class="terms_and_cons d_none">
+            <p><input type="checkbox" name="terms_and_cons" /> <label for="terms_and_cons">Accept  Terms and Conditions.</label></p>
+            
+            </div>
+                </div>
+        <div class="cont_btn">
+            <button onclick="fun()"  class="btn_sign">SIGN UP</button>
+                
+                </div>
+            
+        <!-- </form> -->
+        </div>
+        
+    </div>
+    
+  
+</div>
+
+<div id="optform" hidden class="cont_principal">
+
+    <div class="cont_centrar">
+    <div class="cont_login">
+      <!-- <form action=""> -->
+      <div class="cont_tabs_login">
+        <ul class='ul_tabs'>
+          <li class="active"><a>OTP</a>
+          </li>
+        </ul>
+        </div>
+    <div class="cont_text_inputs">
+      
+      <input type="number" class="input_form_sign d_block active_inp" placeholder="OTP" name="emauil_us" id="input-otp" />
+          </div>
+  <div class="cont_btn">
+       <button onclick="checkotp()" class="btn_sign">ENTER</button>
+        
+        </div>
+        
+      <!-- </form> -->
+      </div>
+      
+    </div>
+    
+  
+  </div>
+</div>
+
+
+  <script>
+
+var data={}
+                function fun(){
+                    var myHeaders = new Headers();
+                    myHeaders.append("Content-Type", "application/json");
+    
+                    var raw = JSON.stringify({
+                        "email":document.getElementById("email1").value,
+                    "name": document.getElementById("name1").value,
+                    "password": document.getElementById("password1").value,
+                    });
+                    var requestOptions = {
+                    method: 'POST',
+                    mode:'cors',
+                    headers: myHeaders,
+                    body: raw,
+                    redirect: 'follow'
+                    };
+                    console.log(raw)
+                    fetch("http://localhost:8001/signup", requestOptions)
+                    .then(response => response.text())
+                    .then(result => {
+                        console.log(result)
+                        if(result=="otp success"){
+                            // document.getElementById("gmail-otp").innerHTML=document.getElementById("email").value
+                            document.getElementById("signupform").style.display ='none'
+                            document.getElementById("optform").style.display='block'
+                            
+                        }else{
+                            alert("user already exist")
+                        }
+                    })
+                    .catch(error => console.log('error', error));
+    }
+
+
+                function checkotp(){
+                    var myHeaders = new Headers();
+                    myHeaders.append("Content-Type", "application/json");
+    
+                    var raw = JSON.stringify({
+                    "email":document.getElementById("email1").value,
+                    "name": document.getElementById("name1").value,
+                    "password": document.getElementById("password1").value,
+                    "otp":document.getElementById("input-otp").value
+                    });
+    
+                    var requestOptions = {
+                    method: 'POST',
+                    mode:'cors',
+                    headers: myHeaders,
+                    body: raw,
+                    redirect: 'follow'
+                    };
+                    console.log(raw)
+                    fetch("http://localhost:8001/checkotp", requestOptions)
+                    .then(response => response.text())
+                    .then(result => {
+                        console.log(result)
+                        if(result=="success"){
+                            alert("successful signup")
+                            window.location.href = "index.html";
+                        }
+                        else{
+                            alert("Wrong otp")
+                        }
+                        
+                    })
+                    .catch(error => console.log('error', error));
+                }
+  </script>
+
+

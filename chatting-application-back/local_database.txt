@@ -1,0 +1,7 @@
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PASS=Kiran@123
+DB_DATABASE=info
+USER_EMAIL=dummy.python10@gmail.com
+EMAIL_PASS=awjhkdqtopyxqkda

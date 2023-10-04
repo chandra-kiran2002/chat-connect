@@ -1,0 +1,79 @@
+<head>
+    <link rel="stylesheet" href="css/style1.css">
+</head>
+
+
+<div class="cont_principal">
+
+    <div class="cont_centrar">
+    <div class="cont_login">
+      <div class="cont_tabs_login">
+        <ul class='ul_tabs'>
+          <li class="active"><a href="index.html" onclick="sign_in()">SIGN IN</a>
+          <span class="linea_bajo_nom"></span>
+          </li>
+          <li><a href="signup.html" onclick="sign_up()">SIGN UP</a><span class="linea_bajo_nom"></span>
+          </li>
+        </ul>
+        </div>
+    <div class="cont_text_inputs">
+      
+      <input type="text" class="input_form_sign d_block active_inp" id="email1" placeholder="EMAIL" name="emauil_us" />
+  
+      <input type="password" class="input_form_sign d_block  active_inp" placeholder="PASSWORD" name="pass_us" id="password1" />  
+      
+      <a href="#" class="link_forgot_pass d_block" >Forgot Password ?</a>    
+        </div>
+  <div class="cont_btn">
+       <button onclick="fun()" class="btn_sign">SIGN IN</button>
+        
+        </div>
+        
+      </div>
+      
+    </div>
+    
+  
+  </div>
+  <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
+  <script >
+        window.onload = function exampleFunction() {
+            // var cookie_value=
+            console.log(document.cookie)
+            if(document.cookie!=""){var x =document.cookie.split(";")[0].split("=")[1].split(" ")
+                if(x[2]=="success_chat"){
+                    window.location.href = "chat_app.html";
+                }}
+            }
+     function fun(){
+                var myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/json");
+
+                var raw = JSON.stringify({
+                "email": document.getElementById("email1").value,
+                "password": document.getElementById("password1").value,
+                });
+
+                var requestOptions = {
+                method: 'POST',
+                mode:'cors',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+                };
+
+                fetch("http://localhost:8001/login", requestOptions)
+                .then(response => response.json())
+                .then(result => {
+                    console.log(result)
+                    if(result[0].status=="success"){
+                        console.log(result[0].result[0].name)
+                        document.cookie = "data="+result[0].result[0].name+" "+result[0].result[0].id+" success_chat";
+                        window.location.href = "chat_app.html";
+                    }else{
+                        alert("Login failed")
+                    }
+                })
+                .catch(error => console.log('error', error));
+}
+  </script>
