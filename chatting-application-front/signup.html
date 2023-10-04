@@ -93,7 +93,7 @@ var data={}
                     redirect: 'follow'
                     };
                     console.log(raw)
-                    fetch("http://localhost:8001/signup", requestOptions)
+                    fetch("https://chat-connect-back.onrender.com/signup", requestOptions)
                     .then(response => response.text())
                     .then(result => {
                         console.log(result)
@@ -129,7 +129,7 @@ var data={}
                     redirect: 'follow'
                     };
                     console.log(raw)
-                    fetch("http://localhost:8001/checkotp", requestOptions)
+                    fetch("https://chat-connect-back.onrender.com/checkotp", requestOptions)
                     .then(response => response.text())
                     .then(result => {
                         console.log(result)

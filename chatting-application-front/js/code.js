@@ -2,7 +2,7 @@ var chat=[1,2,3,4,5,6,7,8,9,10]
         var currentTo=null;
         var from=24
         // import { io } from "https://cdn.socket.io/4.4.1/socket.io.esm.min.js";
-        var socket = io("http://localhost:8001/");
+        var socket = io("https://chat-connect-back.onrender.com/");
          window.onload = function exampleFunction() {
             console.log("sacac")
             console.log(document.cookie)
@@ -100,7 +100,7 @@ var chat=[1,2,3,4,5,6,7,8,9,10]
                 redirect: 'follow'
                 };
 
-                fetch("http://localhost:8001/uploadmessage", requestOptions)
+                fetch("https://chat-connect-back.onrender.com/uploadmessage", requestOptions)
                 .then(response => response.text())
                 .then(result => {
                     console.log(result)
@@ -129,7 +129,7 @@ var chat=[1,2,3,4,5,6,7,8,9,10]
                 redirect: 'follow'
                 };
 
-                fetch("http://localhost:8001/getprofiles", requestOptions)
+                fetch("https://chat-connect-back.onrender.com/getprofiles", requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     console.log("----------------------- IN UPDATE FUNCTION ----------")
@@ -180,7 +180,7 @@ var chat=[1,2,3,4,5,6,7,8,9,10]
                 redirect: 'follow'
                 };
 
-                fetch("http://localhost:8001/getmessages", requestOptions)
+                fetch("https://chat-connect-back.onrender.com/getmessages", requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     console.log(result) 
@@ -223,7 +223,7 @@ var chat=[1,2,3,4,5,6,7,8,9,10]
                 redirect: 'follow'
                 };
 
-                fetch("http://localhost:8001/msgtonew", requestOptions)
+                fetch("https://chat-connect-back.onrender.com/msgtonew", requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     console.log(result) 
