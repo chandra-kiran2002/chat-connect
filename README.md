@@ -10,9 +10,9 @@ This repository contains the back-end code for our full-stack chat web applicati
 
 ## Features
 
-✉️ Real-time chat functionality
-📊 MySQL database for data storage
-🔌 Socket.io for instant messaging
+✉️ Real-time chat functionality <br>
+📊 MySQL database for data storage  <br>
+🔌 Socket.io for instant messaging  <br>
 🌐 Responsive front-end design with Bootstrap
 
 
