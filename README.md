@@ -1,18 +1,18 @@
-# chatting-application-back
+# Chat - connect
 
-live hosted web link : https://chat-connect-axx9.onrender.com
+Live Hosted Web Link: [🚀 Visit Live Website](https://chat-connect-axx9.onrender.com)
 
-link https://youtu.be/hAP7pQegdIw
+Video Demo: [📺 Watch the Video Demo](https://youtu.be/hAP7pQegdIw)
 
-This rep is for the back-end for the chatting application 
-nodejs sql express js  and socket.io are used for developing this back-end.
+## Overview
 
-Chatting App (Web App)
-Mysql, Nodejs, Bootstrap, Javascript
+This repository contains the back-end code for our full-stack chat web application. The application is built using MySQL, Node.js, Bootstrap, and JavaScript, and it leverages the power of real-time communication through WebSockets (Socket.io).
+
+## Features
+
+✉️ Real-time chat functionality
+📊 MySQL database for data storage
+🔌 Socket.io for instant messaging
+🌐 Responsive front-end design with Bootstrap
 
 
-The goal of this project is to create a full-stack chat web application.
-• This programme uses MySQL for the database, bootstrap for the front end, and 
-node.js as the backend.
-• For real-time conversation experiences, this application uses WebSockets 
-(Socket.io).
