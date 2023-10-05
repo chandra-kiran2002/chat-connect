@@ -296,6 +296,7 @@ io.on('connection', function(socket){
 
   socket.on('disconnect', function () {
     for (const x of online_users.entries()) {
+      console.log("socket.io ")
       console.log(x)
       if(x[1]==socket.id){
         online_users.delete(x[0])
